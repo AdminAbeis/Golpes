@@ -70,8 +70,23 @@ body{
 .roster li{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;
   border-bottom:1px dotted var(--line);padding-bottom:.4rem}
 .roster .ra{font-family:"IBM Plex Mono",monospace;font-size:.82rem;color:var(--muted);white-space:nowrap}
+.roster .curso{display:block;font-style:normal;font-family:Archivo,sans-serif;
+  font-size:.74rem;letter-spacing:.02em;color:var(--muted);margin-top:.12rem}
 .meta{margin-top:1.4rem;font-size:.92rem;color:var(--muted)}
 .meta strong{color:var(--ink);font-weight:600}
+
+.download{
+  display:inline-flex;align-items:center;gap:.7rem;margin-top:1.5rem;
+  background:var(--teal);color:#EAF2F1;text-decoration:none;
+  padding:.8rem 1.2rem;border-radius:2px;
+  font-family:Archivo,sans-serif;font-size:.94rem;font-weight:600;
+  border:1px solid var(--teal);transition:background .15s,color .15s;
+}
+.download em{font-style:normal;font-family:"IBM Plex Mono",monospace;
+  font-size:.72rem;letter-spacing:.1em;opacity:.75;margin-left:.15rem}
+.download .ico{font-size:1.05rem;line-height:1}
+.download:hover{background:#0A3D40}
+.download:focus-visible{outline:2px solid var(--ochre);outline-offset:2px}
 
 /* ---------- layout ---------- */
 .shell{max-width:1180px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem);
@@ -190,7 +205,7 @@ footer{border-top:1px solid var(--line);padding:2rem clamp(1.25rem,5vw,3rem) 3re
 footer div{max-width:1180px;margin:0 auto}
 
 @media print{
-  .a11y,nav.toc{display:none}
+  .a11y,nav.toc,.download{display:none}
   body{background:#fff;font-size:11pt}
   .shell{grid-template-columns:1fr;display:block}
   .masthead{background:#fff;color:#000;border-bottom:2px solid #000}
@@ -214,14 +229,18 @@ footer div{max-width:1180px;margin:0 auto}
   <div class="group-inner">
     <h2>Grupo</h2>
     <ul class="roster">
-      <li><span>Diogo de Campos Martins</span><span class="ra">RA 6000xxxx</span></li>
-      <li><span>Eduardo Henrique Zuffo</span><span class="ra">RA 60009637</span></li>
-      <li><span>Giovana Paulini</span><span class="ra">RA 60007749</span></li>
-      <li><span>Márcio Eller</span><span class="ra">RA 60007883</span></li>
-      <li><span>Matheus Eller</span><span class="ra">RA 60005842</span></li>
-      <li><span>Renan Tuci Afonso</span><span class="ra">RA 60005425</span></li>
+      <li><span>Diogo de Campos Martins<em class="curso">Ciências Contábeis</em></span><span class="ra">RA 6000xxxx</span></li>
+      <li><span>Eduardo Henrique Zuffo<em class="curso">Administração</em></span><span class="ra">RA 60009637</span></li>
+      <li><span>Giovana Paulini<em class="curso">Administração</em></span><span class="ra">RA 60007749</span></li>
+      <li><span>Márcio Eller<em class="curso">Administração</em></span><span class="ra">RA 60007883</span></li>
+      <li><span>Matheus Eller<em class="curso">Ciências Contábeis</em></span><span class="ra">RA 60005842</span></li>
+      <li><span>Renan Tuci Afonso<em class="curso">Ciências Contábeis</em></span><span class="ra">RA 60005425</span></li>
     </ul>
-    <p class="meta"><strong>Cursos:</strong> Administração e Ciências Contábeis · <strong>Período:</strong> _______ · <strong>Professor:</strong> Prof. Dr. José Luiz Borsatto Junior · <strong>Umuarama – PR, 2026</strong></p>
+    <p class="meta"><strong>4º período</strong> · <strong>Professor:</strong> Prof. Dr. José Luiz Borsatto Junior · <strong>Umuarama – PR, 2026</strong></p>
+    <a class="download" href="assets/docs/PACExPrevencaoDeGolpes.pdf" download>
+      <span class="ico" aria-hidden="true">↓</span>
+      <span>Baixar o trabalho completo <em>PDF</em></span>
+    </a>
   </div>
 </div>
 
