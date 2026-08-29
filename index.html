@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PACEx — Prevenção de golpes financeiros digitais e conscientização sobre apostas online</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#E7ECEA;
+  --surface:#FCFDFC;
+  --ink:#14202A;
+  --teal:#0E4F52;
+  --ochre:#8A5A00;
+  --muted:#556770;
+  --line:#C4D0CC;
+  --fs:19px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:"Source Serif 4",Georgia,serif;
+  font-size:var(--fs);line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- topo ---------- */
+.masthead{
+  background:var(--teal);color:#EAF2F1;
+  padding:clamp(2.5rem,6vw,4.5rem) clamp(1.25rem,5vw,3rem) clamp(2rem,4vw,3rem);
+  border-bottom:6px solid var(--ochre);
+}
+.masthead-inner{max-width:1180px;margin:0 auto}
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.16em;
+  text-transform:uppercase;color:#9FC5C2;margin-bottom:1.4rem;
+}
+.masthead h1{
+  font-family:Archivo,system-ui,sans-serif;font-weight:700;
+  font-size:clamp(1.9rem,5.2vw,3.4rem);line-height:1.08;
+  letter-spacing:-.02em;max-width:20ch;
+}
+.masthead .sub{
+  font-size:clamp(1rem,2.2vw,1.2rem);color:#C3DAD8;
+  margin-top:1.2rem;max-width:52ch;
+}
+.stage{
+  display:inline-block;margin-top:1.8rem;padding:.4rem .9rem;
+  border:1px solid #4A7E80;border-radius:2px;
+  font-family:"IBM Plex Mono",monospace;font-size:.78rem;letter-spacing:.08em;
+  color:#B9D5D3;
+}
+
+/* ---------- grupo ---------- */
+.group{
+  background:var(--surface);border-bottom:1px solid var(--line);
+  padding:clamp(1.75rem,4vw,2.5rem) clamp(1.25rem,5vw,3rem);
+}
+.group-inner{max-width:1180px;margin:0 auto}
+.group h2{
+  font-family:"IBM Plex Mono",monospace;font-size:.72rem;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+  margin-bottom:1.1rem;
+}
+.roster{list-style:none;display:grid;gap:.5rem .5rem;grid-template-columns:repeat(auto-fill,minmax(255px,1fr))}
+.roster li{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;
+  border-bottom:1px dotted var(--line);padding-bottom:.4rem}
+.roster .ra{font-family:"IBM Plex Mono",monospace;font-size:.82rem;color:var(--muted);white-space:nowrap}
+.meta{margin-top:1.4rem;font-size:.92rem;color:var(--muted)}
+.meta strong{color:var(--ink);font-weight:600}
+
+/* ---------- layout ---------- */
+.shell{max-width:1180px;margin:0 auto;padding:0 clamp(1.25rem,5vw,3rem);
+  display:grid;grid-template-columns:230px 1fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}}
+
+nav.toc{position:sticky;top:1.5rem;padding:2.5rem 0;font-family:Archivo,sans-serif}
+@media(max-width:900px){nav.toc{position:static;padding:1.75rem 0 .5rem;border-bottom:1px solid var(--line)}}
+nav.toc h2{font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:1rem;font-weight:500}
+nav.toc ol{list-style:none;counter-reset:t}
+nav.toc li{counter-increment:t;margin-bottom:.15rem}
+nav.toc a{
+  display:flex;gap:.6rem;text-decoration:none;color:var(--ink);
+  font-size:.88rem;line-height:1.35;padding:.4rem .5rem .4rem 0;border-radius:2px;
+}
+nav.toc a::before{content:counter(t);font-family:"IBM Plex Mono",monospace;
+  font-size:.72rem;color:var(--muted);padding-top:.15rem}
+nav.toc a:hover{color:var(--teal)}
+nav.toc a:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+
+main{padding:2.5rem 0 4rem;max-width:70ch}
+
+/* ---------- tipografia do corpo ---------- */
+section{margin-bottom:3.25rem;scroll-margin-top:1.5rem}
+h2.sec{
+  font-family:Archivo,sans-serif;font-weight:700;
+  font-size:clamp(1.45rem,3.4vw,1.95rem);line-height:1.2;letter-spacing:-.015em;
+  padding-bottom:.6rem;border-bottom:2px solid var(--ink);margin-bottom:1.5rem;
+}
+h3.sub{font-family:Archivo,sans-serif;font-weight:600;font-size:1.18rem;
+  margin:2.25rem 0 .85rem;color:var(--teal)}
+h4.subsub{font-family:Archivo,sans-serif;font-weight:600;font-size:1.02rem;
+  margin:1.75rem 0 .7rem}
+p{margin-bottom:1.15rem}
+p.lead{font-size:1.1em;color:#243642}
+strong{font-weight:600}
+em{font-style:italic}
+
+ul.plain{margin:0 0 1.3rem 1.15rem}
+ul.plain li{margin-bottom:.5rem;padding-left:.3rem}
+
+/* ---------- assinatura: cartões de mensagem ---------- */
+.triggers{display:grid;gap:1rem;margin:1.75rem 0 2rem}
+.trigger{
+  background:var(--surface);border:1px solid var(--line);
+  border-left:5px solid var(--ochre);padding:1.15rem 1.3rem;
+}
+.trigger .tag{
+  font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ochre);display:block;margin-bottom:.55rem;
+}
+.trigger p{margin-bottom:.9rem;font-size:.97em}
+.trigger p:last-of-type{margin-bottom:0}
+.bubble{
+  background:#E4EAF0;border-radius:14px 14px 14px 3px;
+  padding:.7rem .95rem;font-family:Archivo,sans-serif;font-size:.92rem;
+  color:#1D2B36;display:inline-block;max-width:100%;
+}
+.bubble::before{
+  content:"mensagem recebida";display:block;
+  font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.12em;
+  text-transform:uppercase;color:#75858F;margin-bottom:.35rem;
+}
+
+/* ---------- destaques ---------- */
+.rule{
+  background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--teal);
+  padding:1.25rem 1.4rem;margin:1.75rem 0;
+}
+.rule .label{font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--teal);display:block;margin-bottom:.5rem}
+.rule p{margin:0;font-size:1.05em}
+
+.figures{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:1px;background:var(--line);border:1px solid var(--line);margin:1.75rem 0}
+.fig{background:var(--surface);padding:1.1rem}
+.fig .n{font-family:Archivo,sans-serif;font-weight:700;font-size:1.5rem;
+  color:var(--teal);display:block;line-height:1.1}
+.fig .d{font-size:.82rem;color:var(--muted);margin-top:.4rem;display:block;line-height:1.4}
+
+/* erosão RTP */
+.decay{margin:1.5rem 0;border:1px solid var(--line);background:var(--surface);padding:1.2rem 1.3rem}
+.decay .label{font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.9rem}
+.bars{display:flex;align-items:flex-end;gap:3px;height:80px}
+.bars i{flex:1;background:var(--teal);opacity:.75;display:block}
+.decay .cap{font-size:.82rem;color:var(--muted);margin-top:.75rem;
+  font-family:"IBM Plex Mono",monospace}
+
+/* ---------- referências ---------- */
+.refs{list-style:none;counter-reset:r}
+.refs li{counter-increment:r;font-size:.9rem;line-height:1.5;margin-bottom:.9rem;
+  padding-left:2.2rem;position:relative;color:#243642}
+.refs li::before{content:counter(r,decimal-leading-zero);position:absolute;left:0;top:.1rem;
+  font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--muted)}
+.refs a{color:var(--teal);word-break:break-word}
+
+/* ---------- controle de texto ---------- */
+.a11y{
+  position:fixed;right:1rem;bottom:1rem;z-index:50;display:flex;gap:.35rem;
+  background:var(--surface);border:1px solid var(--line);padding:.4rem;border-radius:3px;
+  box-shadow:0 2px 10px rgba(20,32,42,.12);
+}
+.a11y button{
+  font-family:Archivo,sans-serif;font-weight:600;background:none;border:1px solid transparent;
+  color:var(--ink);cursor:pointer;padding:.35rem .6rem;border-radius:2px;line-height:1;
+}
+.a11y button:hover{background:var(--paper)}
+.a11y button[aria-pressed="true"]{background:var(--teal);color:#fff}
+.a11y button:focus-visible{outline:2px solid var(--teal);outline-offset:1px}
+.a11y .s{font-size:.8rem}.a11y .m{font-size:1rem}.a11y .l{font-size:1.22rem}
+
+footer{border-top:1px solid var(--line);padding:2rem clamp(1.25rem,5vw,3rem) 3rem;
+  font-size:.82rem;color:var(--muted)}
+footer div{max-width:1180px;margin:0 auto}
+
+@media print{
+  .a11y,nav.toc{display:none}
+  body{background:#fff;font-size:11pt}
+  .shell{grid-template-columns:1fr;display:block}
+  .masthead{background:#fff;color:#000;border-bottom:2px solid #000}
+  .masthead .sub,.eyebrow{color:#444}
+  section{page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="eyebrow">Projeto de Atividade Curricular de Extensão · UNIPAR</div>
+    <h1>Prevenção de golpes financeiros digitais e conscientização sobre apostas online</h1>
+    <p class="sub">Mapeamento conceitual dos golpes de maior incidência no país e dos mecanismos matemáticos que sustentam as plataformas de apostas.</p>
+    <span class="stage">Etapa 1 — Exploração</span>
+  </div>
+</header>
+
+<div class="group">
+  <div class="group-inner">
+    <h2>Grupo</h2>
+    <ul class="roster">
+      <li><span>Diogo de Campos Martins</span><span class="ra">RA 6000xxxx</span></li>
+      <li><span>Eduardo Henrique Zuffo</span><span class="ra">RA 60009637</span></li>
+      <li><span>Giovana Paulini</span><span class="ra">RA 60007749</span></li>
+      <li><span>Márcio Eller</span><span class="ra">RA 60007883</span></li>
+      <li><span>Matheus Eller</span><span class="ra">RA 60005842</span></li>
+      <li><span>Renan Tuci Afonso</span><span class="ra">RA 60005425</span></li>
+    </ul>
+    <p class="meta"><strong>Cursos:</strong> Administração e Ciências Contábeis · <strong>Período:</strong> _______ · <strong>Professor:</strong> Prof. Dr. José Luiz Borsatto Junior · <strong>Umuarama – PR, 2026</strong></p>
+  </div>
+</div>
+
+<div class="shell">
+  <nav class="toc" aria-label="Sumário">
+    <h2>Sumário</h2>
+    <ol>
+      <li><a href="#s1">Introdução</a></li>
+      <li><a href="#s2">Golpes financeiros digitais</a></li>
+      <li><a href="#s3">Apostas online</a></li>
+      <li><a href="#s4">Impacto e vulnerabilidade</a></li>
+      <li><a href="#s5">Considerações finais</a></li>
+      <li><a href="#refs">Referências</a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <section id="s1">
+      <h2 class="sec">1 Introdução</h2>
+      <p class="lead">A digitalização do sistema financeiro brasileiro trouxe ganhos expressivos de inclusão e eficiência, mas abriu duas frentes de vulnerabilidade patrimonial de larga escala: a fraude por engenharia social e o consumo massivo de plataformas de apostas online. Ambas compartilham um traço estrutural — não exploram falhas técnicas dos sistemas, e sim falhas previsíveis de julgamento humano. Em um caso, o criminoso induz a vítima a autorizar voluntariamente a própria perda; no outro, a plataforma opera dentro da legalidade, mas com desenho matemático que garante, no longo prazo, a transferência de renda do usuário para a empresa.</p>
+      <p>Este levantamento cataloga três modalidades de golpe financeiro digital de alta incidência no país — phishing, fraudes envolvendo o Pix e o golpe da falsa venda —, descreve os mecanismos matemáticos e comportamentais que explicam a atratividade e a retenção nas casas de apostas e articula ambos os fenômenos ao impacto sobre o orçamento familiar, com atenção específica ao público idoso, alvo prioritário da ação extensionista.</p>
+      <p>Cabe um esclarecimento metodológico. O foco do projeto é a pessoa física, em especial o público idoso, e é para esse perfil que se dirigem os materiais das etapas seguintes. A variante empresarial do golpe da falsa venda, tratada no item 2.3.2, é incluída como complemento de contextualização, por interessar diretamente à formação em Administração e Ciências Contábeis e por demonstrar que o mesmo padrão de engenharia social opera em escalas distintas — não como desdobramento do escopo da ação comunitária.</p>
+    </section>
+
+    <section id="s2">
+      <h2 class="sec">2 Golpes financeiros digitais</h2>
+
+      <h3 class="sub">2.1 Phishing (pescaria digital)</h3>
+      <p>O phishing é um dos golpes digitais utilizados para obter informações pessoais e financeiras por meio da manipulação da vítima. Nesse tipo de golpe, o criminoso normalmente se passa por uma pessoa, empresa ou instituição conhecida — um banco, uma loja, uma plataforma de pagamento — para fazer com que a vítima acredite que aquela comunicação é verdadeira. A partir disso, tenta convencê-la a realizar alguma ação: clicar em um link, acessar uma página ou fornecer informações pessoais e bancárias. É muito utilizado em golpes financeiros porque serve tanto para conseguir dados importantes da vítima quanto para induzi-la a uma ação que resulte em prejuízo direto.</p>
+      <p>O golpe geralmente começa com uma mensagem que parece legítima. A vítima pode receber um e-mail, SMS, mensagem em aplicativo ou comunicação por redes sociais — modalidades que recebem nomes próprios conforme o canal: <em>smishing</em> quando por SMS, <em>vishing</em> quando por ligação telefônica, inclusive com voz sintetizada, e <em>quishing</em> quando por QR code adulterado. O criminoso cria uma situação que chame a atenção da pessoa. A FEBRABAN aponta como pretextos mais frequentes o e-mail de suposto banco alegando conta irregular, cartão acima do limite, necessidade de atualização de token ou instalação urgente de novo software de segurança. Em muitos casos, a mensagem apresenta um link para que a pessoa possa supostamente verificar ou solucionar aquilo. Quando a vítima acessa esse link, pode ser direcionada para uma página falsa, criada para se parecer com a página verdadeira da empresa ou instituição. Dessa forma, ela acredita estar acessando um ambiente seguro quando, na realidade, está fornecendo informações diretamente ao criminoso. Em variação menos frequente, o próprio clique instala programa malicioso que captura os dados do aparelho.</p>
+      <p>Um dos principais motivos pelos quais esse golpe funciona é a utilização da engenharia social. O criminoso não depende apenas de recursos tecnológicos: procura explorar comportamentos e emoções humanas. Em vez de simplesmente tentar descobrir uma senha ou invadir diretamente uma conta, ele faz com que a própria vítima forneça a informação acreditando estar tomando uma decisão correta. A engenharia social tem, portanto, papel central no phishing, pois é responsável por criar uma situação capaz de influenciar a maneira como a vítima reage. Quatro técnicas concentram as abordagens.</p>
+
+      <div class="triggers">
+        <div class="trigger">
+          <span class="tag">Urgência</span>
+          <p>O criminoso pode dizer que existe uma compra suspeita, que uma conta está prestes a ser bloqueada ou que determinada ação precisa ser realizada imediatamente. Com isso, a vítima sente que não pode deixar para verificar a informação depois: passa a se preocupar mais em resolver o suposto problema do que em confirmar se a mensagem realmente veio da instituição. Essa pressa pode fazer com que clique em um link ou forneça informações sem analisar os detalhes.</p>
+          <span class="bubble">Sua conta será bloqueada nas próximas 2 horas.</span>
+        </div>
+        <div class="trigger">
+          <span class="tag">Medo</span>
+          <p>O criminoso cria uma situação que representa algum risco para a vítima — perder o acesso à conta, ter o cartão utilizado por outra pessoa, sofrer algum prejuízo — e, em seguida, apresenta uma suposta solução. A vítima, preocupada com o que pode acontecer, acaba seguindo as instruções sem perceber que a própria solução apresentada faz parte do golpe. O criminoso utiliza a preocupação da vítima com a segurança financeira dela mesma para realizar a fraude.</p>
+          <span class="bubble">Detectamos uma compra de R$ 3.500 no seu cartão.</span>
+        </div>
+        <div class="trigger">
+          <span class="tag">Autoridade</span>
+          <p>O golpista se apresenta como funcionário de um banco, empresa ou outra instituição conhecida. O nome, o logotipo e a aparência da comunicação transmitem sensação de legitimidade. Como a vítima acredita estar recebendo orientação de uma instituição em que confia, fica menos desconfiada da solicitação, e o criminoso aproveita essa confiança para conduzi-la pelas instruções.</p>
+          <span class="bubble">Central de Segurança do seu banco. Confirme seus dados para desbloquear o acesso.</span>
+        </div>
+        <div class="trigger">
+          <span class="tag">Recompensa e curiosidade</span>
+          <p>Nem sempre o phishing utiliza medo ou ameaça. Em algumas situações, o criminoso procura despertar curiosidade ou oferecer alguma vantagem: uma promoção, um prêmio, um benefício ou uma oportunidade que pareça interessante. A vítima clica porque acredita que irá ganhar alguma coisa ou aproveitar uma oportunidade antes que termine. O objetivo permanece o mesmo.</p>
+          <span class="bubble">Você tem um reembolso de Pix pendente. Resgate agora.</span>
+        </div>
+      </div>
+
+      <p>Dessa forma, o criminoso utiliza a engenharia social a seu favor porque consegue fazer com que a própria vítima participe do golpe sem perceber. A pessoa clica no link, acessa a página, fornece os dados ou realiza determinada ação porque acredita que está resolvendo um problema, protegendo sua conta ou aproveitando uma oportunidade. Isso mostra que o phishing não depende apenas da tecnologia: os links e as páginas falsas são importantes, mas a manipulação da vítima é parte fundamental do processo. O criminoso primeiro cria uma história convincente e depois utiliza essa história para conduzir a pessoa até a ação que deseja.</p>
+      <p>O phishing pode causar prejuízos financeiros de diferentes maneiras. Os dados obtidos podem ser utilizados posteriormente em outras fraudes, e determinadas abordagens procuram induzir diretamente a vítima a realizar operações financeiras. Em golpes relacionados a bancos e cartões, o criminoso pode usar uma falsa comunicação para conseguir informações que permitam o acesso a recursos ou para convencer a vítima a realizar alguma operação. Assim, o roubo da informação pode ser apenas uma etapa de um golpe maior, cujo objetivo final é conseguir dinheiro.</p>
+      <p>O acompanhamento quantitativo do fenômeno no Brasil pode ser feito junto ao CERT.br, centro nacional de resposta a incidentes de segurança mantido pelo NIC.br, que publica estatísticas mensais das páginas falsas utilizadas em tentativas de phishing. Os dados abrangem tanto os golpes voltados à obtenção de vantagem financeira direta — envolvendo bancos, cartões de crédito, meios de pagamento e sites de comércio eletrônico — quanto tentativas de fraude que exploram serviços de webmail, acessos remotos corporativos e credenciais de nuvem, com séries detalhadas por categoria disponíveis desde 2016.</p>
+      <p>Por isso, entender o phishing exige olhar não apenas para o link ou para a página falsa, mas também para a maneira como o criminoso tenta influenciar a vítima. O golpe pode começar com uma simples mensagem, mas por trás dela existe uma estratégia que busca despertar uma reação específica — medo para gerar preocupação, urgência para impedir a reflexão, autoridade para aumentar a confiança, recompensa para despertar o interesse. Obtida essa reação, o criminoso conduz a vítima à etapa seguinte.</p>
+      <p>A prevenção apoia-se em três regras verificáveis por qualquer pessoa. A primeira é não acessar serviços por links recebidos, e sim digitar o endereço ou abrir o aplicativo oficial. A segunda é lembrar que nenhuma instituição solicita senha, código de verificação ou dados completos do cartão por mensagem ou telefone. A terceira corrige uma noção difundida e hoje obsoleta: a presença do cadeado e do "https" não atesta legitimidade, pois páginas fraudulentas também utilizam certificados válidos. O que deve ser conferido é o endereço completo do site, atentando para domínios semelhantes aos verdadeiros com terminação alterada.</p>
+
+      <h3 class="sub">2.2 Golpes envolvendo o Pix</h3>
+      <p>O Pix trouxe mais rapidez e praticidade para as transações financeiras, mas também passou a ser utilizado por criminosos para aplicar diferentes tipos de golpes. Por funcionar de forma rápida e estar disponível praticamente 24 horas por dia, o Pix pode facilitar a ação dos golpistas, principalmente quando a vítima é pressionada a tomar uma decisão sem verificar as informações. À rapidez soma-se a irreversibilidade prática da operação, que reduz drasticamente a janela de recuperação do valor.</p>
+      <p><strong>O falso comprovante de Pix.</strong> Nesse caso, o criminoso apresenta um comprovante falso ou editado, fazendo parecer que o pagamento foi realizado. A vítima, acreditando que recebeu o dinheiro, entrega o produto ou presta o serviço antes de confirmar se o valor realmente entrou em sua conta.</p>
+      <p><strong>Falsa devolução.</strong> O criminoso pode enviar um Pix de pequeno valor e, posteriormente, alegar que realizou uma transferência por engano, pedindo que o dinheiro seja devolvido para uma chave Pix diferente. Se a vítima fizer uma nova transferência manualmente, poderá perder o próprio dinheiro e ainda correr o risco de o primeiro pagamento ser posteriormente contestado. O erro está justamente na transferência manual: o aplicativo possui função própria de devolução, que restitui o valor exatamente à origem.</p>
+      <p><strong>Pix agendado.</strong> O criminoso apresenta um comprovante de que realizou um pagamento, porém o Pix está apenas agendado e ainda não foi efetivado. Depois de receber o produto ou serviço, o golpista pode cancelar o agendamento, fazendo com que a vítima fique sem o dinheiro e sem o produto.</p>
+      <p>O elemento comum às três modalidades é a <strong>assimetria de conhecimento sobre a ferramenta</strong>: a vítima confia na representação visual do comprovante em vez de confirmar o crédito no extrato — distinção que não é evidente para usuários com menor familiaridade digital. Soma-se a <strong>pressa induzida</strong> pelo golpista, que insiste na entrega imediata justamente para impedir a conferência.</p>
+      <p>Para evitar esses golpes, é fundamental não confiar apenas em comprovantes enviados por outras pessoas. A principal orientação é verificar diretamente o extrato ou saldo da conta antes de considerar um pagamento como realizado. O comprovante pode ser falsificado, mas o crédito efetivo aparecerá na conta. A prevenção depende principalmente da atenção e da informação: conhecer os principais tipos de golpes permite identificar situações suspeitas e evitar prejuízos financeiros.</p>
+
+      <div class="rule">
+        <span class="label">Regra de ouro do Pix</span>
+        <p>Só considere que recebeu o dinheiro quando o valor estiver efetivamente disponível no extrato da sua conta.</p>
+      </div>
+
+      <p>Caso a fraude se concretize, o Banco Central disponibiliza o Mecanismo Especial de Devolução (MED), acionado pelo banco da vítima, que permite o bloqueio dos recursos ainda existentes na conta do recebedor. A comunicação deve ser imediata, pois a eficácia depende de o valor não ter sido pulverizado em outras contas.</p>
+
+      <h3 class="sub">2.3 Golpe da Falsa Venda e falsas lojas virtuais</h3>
+      <p>O golpe da falsa venda foi o mais relatado por clientes bancários no primeiro semestre de 2025, segundo levantamento da FEBRABAN junto às instituições financeiras associadas. Ao todo, foram 174 mil ocorrências, número que representa um aumento de 314% em comparação ao mesmo período de 2024, quando haviam sido registradas 42 mil — salto que levou a modalidade da terceira para a primeira posição do ranking nacional.</p>
+
+      <div class="figures">
+        <div class="fig"><span class="n">174 mil</span><span class="d">ocorrências do golpe da falsa venda no 1º semestre de 2025</span></div>
+        <div class="fig"><span class="n">+314%</span><span class="d">de aumento sobre o mesmo período de 2024</span></div>
+        <div class="fig"><span class="n">139 mil</span><span class="d">relatos de falsa central / falso funcionário (+195,7%)</span></div>
+        <div class="fig"><span class="n">73 mil</span><span class="d">ocorrências do golpe do WhatsApp (−9,9%)</span></div>
+      </div>
+
+      <p>A entidade alerta ainda para a sazonalidade da fraude: períodos de Black Friday e Natal concentram aumento expressivo das ocorrências, o que torna esses meses especialmente sensíveis para ações preventivas.</p>
+
+      <h4 class="subsub">2.3.1 Falsa venda à pessoa física</h4>
+      <p><strong>Como é.</strong> Criminosos criam páginas falsas que simulam e-commerce, enviam promoções inexistentes por e-mails, SMS e mensagens de WhatsApp, e investem na criação de perfis falsos de lojas em redes sociais, imitando layout, logotipo e nome de empresas conhecidas. Efetuado o pagamento — em regra por Pix, que não oferece contestação como o cartão de crédito —, o produto nunca é entregue.</p>
+      <p><strong>Como evitar.</strong> Fique atento. Se o produto tem preço médio de R$ 1.000,00 e alguém anuncia por R$ 300,00, desconfie. Avalie se o e-commerce é recente, se há poucas opções de pagamento ou promessas exageradas. Evite clicar em links de mensagens e prefira sites conhecidos para as compras. Vale conferir CNPJ, endereço e canais de atendimento no rodapé do site e pesquisar a reputação da loja em plataformas como consumidor.gov.br e Procon.</p>
+      <p>O Procon-SP mantém duas ferramentas diretamente aplicáveis. A primeira é a lista pública "Evite estes sites", que reúne endereços de empresas que tiveram reclamações registradas, foram notificadas e não responderam ou não foram localizadas; a consulta é gratuita e recomendada antes de qualquer compra online. A segunda é a orientação específica sobre falsos sites de compras, na qual o órgão alerta que o endereço eletrônico da página fraudulenta costuma trazer o nome de empresa conhecida com terminação diferente — razão pela qual a conferência atenta do endereço deve preceder a compra.</p>
+      <p><strong>Público idoso.</strong> Pessoas idosas podem enfrentar maior dificuldade em compras pela internet, aplicativos bancários e redes sociais, principalmente quando possuem pouca familiaridade com essas ferramentas. Os criminosos podem utilizar falsos anúncios, promoções inexistentes, perfis clonados e mensagens de WhatsApp para induzir a vítima a realizar um pagamento. A orientação preventiva mais eficaz é simples, e consta expressamente entre as recomendações do Procon-SP: em caso de dúvida ou dificuldade, procurar um familiar ou amigo que possa ajudar — o que, em compras de maior valor, significa conversar com uma pessoa de confiança antes de realizar o pagamento.</p>
+      <p>Os gatilhos psicológicos explorados são a <strong>escassez e a oferta excepcional</strong> — descontos improváveis combinados a contadores regressivos —, a <strong>prova social falsificada</strong>, com avaliações e comentários fabricados, e a <strong>confiança de marca</strong>, transferida indevidamente à página clonada. Registre-se que o critério antigo de identificar fraude por erros de português e imagens de baixa qualidade perdeu validade diante de páginas geradas com auxílio de inteligência artificial.</p>
+
+      <h4 class="subsub">2.3.2 Falsa venda em ambiente empresarial</h4>
+      <p>O golpe da falsa venda em empresas é uma fraude que explora falhas de verificação, pressa operacional e confiança nas informações durante uma negociação. Pode ocorrer quando a empresa atua como vendedora ou como compradora.</p>
+      <p><strong>Como vendedor:</strong> o golpista se passa por cliente, afirma que realizou o pagamento via Pix e envia um comprovante falso. O golpe se consuma quando a empresa libera o produto ou serviço sem confirmar o crédito efetivo na conta.</p>
+      <p><strong>Como comprador:</strong> o criminoso se passa por fornecedor, oferece preços muito abaixo do mercado e cria um cenário de urgência. Após exigir pagamento antecipado, geralmente via Pix, não entrega o produto, não emite nota fiscal e interrompe o contato.</p>
+      <p>Principais sinais de alerta:</p>
+      <ul class="plain">
+        <li>Pressa exagerada para liberar mercadorias ou serviços.</li>
+        <li>Resistência a contratos, pedidos, notas fiscais ou conferência cadastral.</li>
+        <li>Entrega em endereço diferente do cadastro sem justificativa.</li>
+        <li>Insistência em aceitar apenas comprovante de pagamento.</li>
+        <li>Perfis falsos ou recém-criados.</li>
+        <li>Preços significativamente abaixo do mercado.</li>
+      </ul>
+      <p>Como se proteger: a regra de ouro do Pix vale igualmente aqui — pagamento só existe quando o dinheiro efetivamente entra na conta, pois comprovantes podem ser manipulados. Por isso, a empresa deve confirmar o pagamento no ambiente bancário oficial; não liberar produtos ou serviços antes da confirmação; fazer conciliação financeira; validar CNPJ, razão social, endereço e telefone; e utilizar canais oficiais para confirmar negociações suspeitas.</p>
+      <p>Se cair no golpe, a reação deve ser imediata: interromper a entrega, salvar evidências, registrar boletim de ocorrência e comunicar o banco o quanto antes, caso tenha realizado algum pagamento, solicitando orientação sobre as medidas disponíveis para contestação ou tentativa de recuperação dos valores — inclusive o acionamento do MED, quando o pagamento tiver sido feito por Pix. Depois, revisar os processos internos.</p>
+
+      <h3 class="sub">2.4 Padrão transversal</h3>
+      <p>As três modalidades compartilham a mesma arquitetura: obtenção prévia de elementos que conferem credibilidade, construção de um pretexto verossímil, imposição de urgência que inviabiliza a verificação, isolamento da vítima em relação à sua rede de apoio e canalização do valor por meio de pagamento irreversível. A implicação para o desenho dos materiais educativos da Etapa 2 é direta: mais eficaz do que enumerar golpes é ensinar o reconhecimento do padrão — pressa, sigilo e pagamento imediato configuram, em conjunto, sinal de alerta independentemente da narrativa apresentada.</p>
+    </section>
+
+    <section id="s3">
+      <h2 class="sec">3 Apostas online: fundamentos matemáticos e comportamentais</h2>
+
+      <h3 class="sub">3.1 Vantagem da casa e esperança matemática negativa</h3>
+      <p>Toda plataforma de apostas opera com margem estrutural embutida no preço do produto. Em mercados esportivos, a margem se expressa na cotação: um evento com duas possibilidades equiprováveis deveria ser cotado a 2,00 em ambos os lados; a oferta usual de 1,90 implica probabilidade implícita somada superior a 100%. A diferença — o <em>overround</em>, da ordem de 5% no exemplo — é a receita esperada da operadora, cobrada independentemente do resultado.</p>
+      <p>Em jogos de cassino online, a mesma lógica aparece sob a forma do RTP (<em>return to player</em>). Um RTP de 96% significa que, do total apostado, 96% retornam aos jogadores como prêmio e 4% permanecem com a casa. O aspecto decisivo, frequentemente incompreendido, é que o percentual incide sobre <strong>cada rodada</strong>, e não sobre o depósito inicial. Como o jogador reaposta os prêmios recebidos, a erosão é composta.</p>
+
+      <div class="decay">
+        <span class="label">Erosão composta — R$ 100,00 sob RTP de 96%, ao longo de 50 rodadas</span>
+        <div class="bars" id="bars" aria-hidden="true"></div>
+        <span class="cap">100 × 0,96<sup>50</sup> ≈ R$ 13,00</span>
+      </div>
+
+      <p>A ruína do apostador é, portanto, o desfecho matematicamente esperado da persistência, e não um infortúnio.</p>
+
+      <h3 class="sub">3.2 Variância, lei dos grandes números e a ilusão do ganho</h3>
+      <p>Se o resultado esperado é negativo, resta explicar por que tantas pessoas relatam ganhos. A resposta está na variância. No curto prazo, o resultado individual oscila amplamente em torno da média, e ganhos são não apenas possíveis como frequentes. A lei dos grandes números garante apenas que, à medida que o número de tentativas cresce, o resultado médio converge para a esperança matemática — negativa por construção.</p>
+      <p>Esse descompasso entre a experiência de curto prazo e a determinação de longo prazo é o que sustenta o setor. O apostador vivencia vitórias reais e as interpreta como evidência de habilidade, enquanto a estrutura matemática opera silenciosamente na direção oposta.</p>
+
+      <h3 class="sub">3.3 Reforço de razão variável e quase-ganhos</h3>
+      <p>O desenho comportamental amplifica o efeito. As plataformas operam sob <strong>reforço de razão variável</strong>, esquema descrito na psicologia experimental como o mais resistente à extinção: recompensas entregues em intervalos imprevisíveis produzem comportamento repetitivo mais persistente do que recompensas regulares. É o mesmo princípio que torna a máquina caça-níqueis mais viciante do que um salário.</p>
+      <p>Soma-se o <strong>quase-ganho</strong> (<em>near miss</em>): configurações em que o resultado se aproxima visualmente da premiação sem alcançá-la. Estudos de neuroimagem indicam que tais eventos ativam circuitos de recompensa de modo semelhante ao ganho efetivo, embora constituam derrota. Trata-se de perda apresentada como progresso.</p>
+
+      <h3 class="sub">3.4 Vieses cognitivos mobilizados</h3>
+      <p>Quatro vieses concentram o efeito. A <strong>falácia do apostador</strong> leva à crença de que resultados passados alteram probabilidades futuras em eventos independentes. A <strong>ilusão de controle</strong> faz o usuário atribuir a decisões próprias — escolha do momento, do time, do valor — influência sobre um processo aleatório. A <strong>aversão à perda</strong> torna o prejuízo psicologicamente mais intenso que o ganho equivalente, alimentando o <em>chasing</em>, isto é, o aumento das apostas para recuperar valores perdidos. E o <strong>viés de disponibilidade</strong> é reforçado pela exposição publicitária: divulgam-se ganhadores, nunca a distribuição completa dos resultados.</p>
+
+      <h3 class="sub">3.5 Bônus, gamificação e retenção algorítmica</h3>
+      <p>O bônus de boas-vindas funciona como custo de aquisição condicionado: o <em>rollover</em> exige que o valor seja apostado múltiplas vezes antes de qualquer saque, garantindo que a margem da casa incida repetidamente sobre ele. Sobre essa base atuam elementos de gamificação — níveis, missões, notificações personalizadas — e o encurtamento do ciclo entre aposta e resultado, promovido pelas apostas ao vivo, que multiplica a frequência de reforço e reduz a janela de reflexão disponível ao usuário.</p>
+    </section>
+
+    <section id="s4">
+      <h2 class="sec">4 Impacto sobre o orçamento familiar e vulnerabilidade da pessoa idosa</h2>
+      <p>A dimensão do fenômeno foi mensurada oficialmente pela primeira vez no Estudo Especial nº 119/2024 do Banco Central, divulgado em setembro de 2024 a partir de solicitação parlamentar. Ao longo de 2024, as transferências mensais via Pix a empresas de apostas e jogos de azar variaram entre R$ 18 bilhões e R$ 21 bilhões; em agosto daquele ano somaram R$ 20,8 bilhões, contra R$ 1,9 bilhão arrecadado por todas as loterias da Caixa Econômica Federal no mesmo mês. Cerca de 24 milhões de pessoas físicas fizeram ao menos uma transferência a essas empresas no período analisado, e estima-se que aproximadamente 15% do valor apostado seja retido pelas plataformas, com o restante distribuído como prêmio.</p>
+
+      <div class="figures">
+        <div class="fig"><span class="n">R$ 20,8 bi</span><span class="d">transferidos via Pix a casas de apostas em agosto de 2024</span></div>
+        <div class="fig"><span class="n">R$ 1,9 bi</span><span class="d">arrecadado por todas as loterias da Caixa no mesmo mês</span></div>
+        <div class="fig"><span class="n">24 milhões</span><span class="d">de pessoas físicas com ao menos uma transferência</span></div>
+        <div class="fig"><span class="n">R$ 62,5 bi</span><span class="d">de perdas líquidas das famílias entre out/2024 e mar/2026</span></div>
+      </div>
+
+      <p>Levantamento mais recente confirma a persistência do quadro. O Boletim Fiscal dos Estados, elaborado pelo Comitê Nacional de Secretários de Fazenda (Comsefaz) com base em estatísticas de pagamentos do Banco Central, estima que as famílias brasileiras perderam R$ 62,5 bilhões líquidos com apostas entre outubro de 2024 e março de 2026 — média de R$ 4,7 bilhões mensais, equivalentes a 0,68% da Renda Nacional Disponível Bruta das Famílias. No mesmo intervalo, as casas de apostas movimentaram quase R$ 351 bilhões em transações via Pix.</p>
+      <p>A Lei nº 14.790/2023 estabeleceu o marco regulatório do setor, com exigências de identificação do apostador, migração para o domínio ".bet.br", vedação ao uso de cartão de crédito e restrições publicitárias. A regulação disciplina a oferta, mas não altera a esperança matemática do produto — razão pela qual a ação educativa permanece necessária.</p>
+      <p>Para a população idosa, os dois fenômenos convergem. O próprio estudo do Banco Central registra que o valor médio mensal transferido cresce com a idade: entre os apostadores mais jovens gira em torno de R$ 100, enquanto entre os mais velhos ultrapassa R$ 3.000 por mês. Ou seja, embora a maioria dos apostadores tenha entre 20 e 30 anos, o comprometimento financeiro individual é substancialmente maior nas faixas etárias avançadas. A renda previsível da aposentadoria, o acesso facilitado ao crédito consignado, o menor domínio das interfaces digitais, o isolamento social e a hesitação em relatar perdas por vergonha compõem um perfil de exposição elevada tanto à fraude quanto ao consumo problemático de apostas.</p>
+      <p>Daí a opção metodológica do projeto por materiais de linguagem simples, tipografia ampliada e alto contraste, orientados ao reconhecimento de padrões e não à memorização de listas.</p>
+    </section>
+
+    <section id="s5">
+      <h2 class="sec">5 Considerações finais</h2>
+      <p>O levantamento indica que fraude digital e apostas online, embora distintas do ponto de vista jurídico, operam sobre o mesmo substrato psicológico: urgência, promessa de ganho e supressão da deliberação. Em ambos os casos, a defesa mais eficaz não é técnica, mas cognitiva — consiste em restabelecer o intervalo de reflexão que o golpista ou a plataforma procuram eliminar.</p>
+      <p>Essa convergência sustenta a estratégia das etapas seguintes: a Etapa 2 consolidará os achados em um Relatório de Diagnóstico Preventivo e em materiais gráficos acessíveis ao público idoso e à comunidade geral, e a Etapa 3 levará esses materiais à aplicação comunitária presencial e digital, com coleta de evidências e registro dos retornos obtidos.</p>
+    </section>
+
+    <section id="refs">
+      <h2 class="sec">Referências a consultar e validar</h2>
+      <ol class="refs">
+        <li>BANCO CENTRAL DO BRASIL. <em>Análise técnica sobre o mercado de apostas online no Brasil e o perfil dos apostadores.</em> Estudo Especial nº 119/2024, reproduzido da Nota Técnica 513/2024-BCB/SECRE, set. 2024. Disponível em: <a href="https://www.bcb.gov.br/conteudo/relatorioinflacao/EstudosEspeciais/EE119_Analise_tecnica_sobre_o_mercado_de_apostas_online_no_Brasil_e_o_perfil_dos_apostadores.pdf">bcb.gov.br</a>. Acesso em: 26 ago. 2026.</li>
+        <li>BANCO CENTRAL DO BRASIL. <em>Mecanismo Especial de Devolução (MED) — Pix.</em></li>
+        <li>BANCO DO BRASIL. <em>Como empresas estão caindo no golpe da falsa venda e o que fazer para não virar a próxima vítima.</em> Blog BB. Disponível em: <a href="https://blog.bb.com.br/como-empresas-estao-caindo-no-golpe-da-falsa-venda-o-que-fazer-para-nao-virar-a-proxima-vitima/">blog.bb.com.br</a>. Acesso em: 26 ago. 2026.</li>
+        <li>BRASIL. <em>Lei nº 14.790, de 29 de dezembro de 2023.</em></li>
+        <li>BRASIL. Ministério dos Direitos Humanos e da Cidadania. <em>Cartilha de Apoio à Pessoa Idosa: enfrentamento à violência patrimonial e financeira.</em></li>
+        <li>CERT.br / NIC.br. <em>Estatísticas de páginas falsas utilizadas em tentativas de phishing.</em> Disponível em: <a href="https://stats.cert.br/phishing/">stats.cert.br/phishing</a>. Acesso em: 26 ago. 2026.</li>
+        <li>CERT.br / NIC.br. <em>Estatísticas de incidentes notificados ao CERT.br.</em> Disponível em: <a href="https://stats.cert.br/incidentes/">stats.cert.br/incidentes</a>. Acesso em: 26 ago. 2026.</li>
+        <li>CNN BRASIL. <em>Entenda o que é phishing e como se proteger desse golpe.</em> CNN Brasil, 6 jun. 2023. Disponível em: <a href="https://www.cnnbrasil.com.br/economia/money/tecnologia/phishing/">cnnbrasil.com.br</a>. Acesso em: 26 ago. 2026.</li>
+        <li>COMITÊ NACIONAL DE SECRETÁRIOS DE FAZENDA (COMSEFAZ). <em>Boletim Fiscal dos Estados Brasileiros.</em> Brasília, ago. 2026.</li>
+        <li>FEDERAÇÃO BRASILEIRA DE BANCOS (FEBRABAN). <em>Golpe da Falsa Venda é o mais aplicado contra clientes bancários no 1º semestre do ano.</em> Portal FEBRABAN, 11 nov. 2025. Disponível em: <a href="https://portal.febraban.org.br/noticia/4381/pt-br/">portal.febraban.org.br</a>. Acesso em: 26 ago. 2026.</li>
+        <li>FEDERAÇÃO BRASILEIRA DE BANCOS (FEBRABAN). <em>Golpe do link falso ou Phishing.</em> Portal FEBRABAN — Antifraude, 21 jan. 2025. Disponível em: <a href="https://portal.febraban.org.br/DetalheAntifraude/8/pt-br/">portal.febraban.org.br</a>. Acesso em: 26 ago. 2026.</li>
+        <li>FEDERAÇÃO BRASILEIRA DE BANCOS (FEBRABAN). <em>FEBRABAN — Golpe do Link Falso.</em> YouTube, 16 set. 2022. Disponível em: <a href="https://www.youtube.com/watch?v=8IUAS9nfwkM">youtube.com</a>. Acesso em: 26 ago. 2026.</li>
+        <li>FUNDAÇÃO PROCON-SP. <em>Evite estes sites.</em> Disponível em: <a href="https://sistemas.procon.sp.gov.br/evitesite/list/evitesites.php">sistemas.procon.sp.gov.br</a>. Acesso em: 26 ago. 2026.</li>
+        <li>FUNDAÇÃO PROCON-SP. <em>Site de compras falso.</em> Disponível em: <a href="https://www.procon.sp.gov.br/site-de-compras-falso/">procon.sp.gov.br</a>. Acesso em: 26 ago. 2026.</li>
+        <li>SECRETARIA NACIONAL DO CONSUMIDOR (SENACON). <em>Alertas e dados da plataforma consumidor.gov.br.</em></li>
+        <li>SECRETARIA DE PRÊMIOS E APOSTAS (SPA/MF). <em>Normativos de jogo responsável.</em></li>
+      </ol>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <div>PACEx — Cursos de Administração e Ciências Contábeis · Universidade Paranaense (UNIPAR) · Umuarama – PR, 2026. Etapa 1 do projeto de extensão. Os dados citados devem ser conferidos nas fontes primárias listadas nas referências.</div>
+</footer>
+
+<div class="a11y" role="group" aria-label="Tamanho do texto">
+  <button class="s" data-size="17" aria-pressed="false">A</button>
+  <button class="m" data-size="19" aria-pressed="true">A</button>
+  <button class="l" data-size="22" aria-pressed="true">A</button>
+</div>
+
+<script>
+// barras da erosão composta: 100 * 0.96^n
+(function(){
+  var el = document.getElementById('bars');
+  if(!el) return;
+  for(var n=0;n<=50;n+=2){
+    var v = 100*Math.pow(0.96,n);
+    var b = document.createElement('i');
+    b.style.height = Math.max(2, v) + '%';
+    el.appendChild(b);
+  }
+})();
+
+// controle de tamanho de texto
+(function(){
+  var btns = document.querySelectorAll('.a11y button');
+  function set(size){
+    document.documentElement.style.setProperty('--fs', size + 'px');
+    btns.forEach(function(b){
+      b.setAttribute('aria-pressed', b.dataset.size === String(size));
+    });
+    try{ localStorage.setItem('pacex-fs', size); }catch(e){}
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){ set(Number(b.dataset.size)); });
+  });
+  var saved;
+  try{ saved = localStorage.getItem('pacex-fs'); }catch(e){}
+  set(saved ? Number(saved) : 19);
+})();
+</script>
+</body>
+</html>
