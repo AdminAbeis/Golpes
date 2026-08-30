@@ -97,16 +97,22 @@ nav.toc{position:sticky;top:1.5rem;padding:2.5rem 0;font-family:Archivo,sans-ser
 @media(max-width:900px){nav.toc{position:static;padding:1.75rem 0 .5rem;border-bottom:1px solid var(--line)}}
 nav.toc h2{font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.16em;
   text-transform:uppercase;color:var(--muted);margin-bottom:1rem;font-weight:500}
-nav.toc ol{list-style:none;counter-reset:t}
-nav.toc li{counter-increment:t;margin-bottom:.15rem}
+nav.toc ul{list-style:none}
+nav.toc>ul>li{margin-bottom:.1rem}
 nav.toc a{
-  display:flex;gap:.6rem;text-decoration:none;color:var(--ink);
-  font-size:.88rem;line-height:1.35;padding:.4rem .5rem .4rem 0;border-radius:2px;
+  display:flex;gap:.55rem;text-decoration:none;color:var(--ink);
+  font-size:.86rem;line-height:1.35;padding:.32rem .4rem .32rem 0;border-radius:2px;
 }
-nav.toc a::before{content:counter(t);font-family:"IBM Plex Mono",monospace;
-  font-size:.72rem;color:var(--muted);padding-top:.15rem}
+nav.toc a b{font-family:"IBM Plex Mono",monospace;font-size:.7rem;font-weight:400;
+  color:var(--muted);padding-top:.15rem;min-width:1.9em}
+nav.toc ul ul{margin:.1rem 0 .55rem 0;padding-left:.55rem;border-left:1px solid var(--line)}
+nav.toc ul ul a{font-size:.79rem;color:#3D4E58;padding:.25rem .4rem .25rem .55rem}
+nav.toc ul ul a b{min-width:2.2em}
 nav.toc a:hover{color:var(--teal)}
+nav.toc a:hover b{color:var(--teal)}
 nav.toc a:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+nav.toc a.active{color:var(--teal);font-weight:600}
+nav.toc a.active b{color:var(--teal)}
 
 main{padding:2.5rem 0 4rem;max-width:70ch}
 
@@ -117,7 +123,7 @@ h2.sec{
   font-size:clamp(1.45rem,3.4vw,1.95rem);line-height:1.2;letter-spacing:-.015em;
   padding-bottom:.6rem;border-bottom:2px solid var(--ink);margin-bottom:1.5rem;
 }
-h3.sub{font-family:Archivo,sans-serif;font-weight:600;font-size:1.18rem;
+h3.sub{scroll-margin-top:1.5rem;font-family:Archivo,sans-serif;font-weight:600;font-size:1.18rem;
   margin:2.25rem 0 .85rem;color:var(--teal)}
 h4.subsub{font-family:Archivo,sans-serif;font-weight:600;font-size:1.02rem;
   margin:1.75rem 0 .7rem}
@@ -247,14 +253,29 @@ footer div{max-width:1180px;margin:0 auto}
 <div class="shell">
   <nav class="toc" aria-label="Sumário">
     <h2>Sumário</h2>
-    <ol>
-      <li><a href="#s1">Introdução</a></li>
-      <li><a href="#s2">Golpes financeiros digitais</a></li>
-      <li><a href="#s3">Apostas online</a></li>
-      <li><a href="#s4">Impacto e vulnerabilidade</a></li>
-      <li><a href="#s5">Considerações finais</a></li>
-      <li><a href="#refs">Referências</a></li>
-    </ol>
+    <ul>
+      <li><a href="#s1"><b>1</b> Introdução</a></li>
+      <li><a href="#s2"><b>2</b> Golpes financeiros digitais</a>
+        <ul>
+          <li><a href="#s21"><b>2.1</b> Phishing</a></li>
+          <li><a href="#s22"><b>2.2</b> Golpes com Pix</a></li>
+          <li><a href="#s23"><b>2.3</b> Golpe da falsa venda</a></li>
+          <li><a href="#s24"><b>2.4</b> Padrão transversal</a></li>
+        </ul>
+      </li>
+      <li><a href="#s3"><b>3</b> Apostas online</a>
+        <ul>
+          <li><a href="#s31"><b>3.1</b> Vantagem da casa</a></li>
+          <li><a href="#s32"><b>3.2</b> Variância e ilusão do ganho</a></li>
+          <li><a href="#s33"><b>3.3</b> Reforço e quase-ganhos</a></li>
+          <li><a href="#s34"><b>3.4</b> Vieses cognitivos</a></li>
+          <li><a href="#s35"><b>3.5</b> Bônus e retenção</a></li>
+        </ul>
+      </li>
+      <li><a href="#s4"><b>4</b> Impacto e vulnerabilidade</a></li>
+      <li><a href="#s5"><b>5</b> Considerações finais</a></li>
+      <li><a href="#refs"><b>—</b> Referências</a></li>
+    </ul>
   </nav>
 
   <main>
@@ -269,7 +290,7 @@ footer div{max-width:1180px;margin:0 auto}
     <section id="s2">
       <h2 class="sec">2 Golpes financeiros digitais</h2>
 
-      <h3 class="sub">2.1 Phishing (pescaria digital)</h3>
+      <h3 class="sub" id="s21">2.1 Phishing (pescaria digital)</h3>
       <p>O phishing é um dos golpes digitais utilizados para obter informações pessoais e financeiras por meio da manipulação da vítima. Nesse tipo de golpe, o criminoso normalmente se passa por uma pessoa, empresa ou instituição conhecida — um banco, uma loja, uma plataforma de pagamento — para fazer com que a vítima acredite que aquela comunicação é verdadeira. A partir disso, tenta convencê-la a realizar alguma ação: clicar em um link, acessar uma página ou fornecer informações pessoais e bancárias. É muito utilizado em golpes financeiros porque serve tanto para conseguir dados importantes da vítima quanto para induzi-la a uma ação que resulte em prejuízo direto.</p>
       <p>O golpe geralmente começa com uma mensagem que parece legítima. A vítima pode receber um e-mail, SMS, mensagem em aplicativo ou comunicação por redes sociais — modalidades que recebem nomes próprios conforme o canal: <em>smishing</em> quando por SMS, <em>vishing</em> quando por ligação telefônica, inclusive com voz sintetizada, e <em>quishing</em> quando por QR code adulterado. O criminoso cria uma situação que chame a atenção da pessoa. A FEBRABAN aponta como pretextos mais frequentes o e-mail de suposto banco alegando conta irregular, cartão acima do limite, necessidade de atualização de token ou instalação urgente de novo software de segurança. Em muitos casos, a mensagem apresenta um link para que a pessoa possa supostamente verificar ou solucionar aquilo. Quando a vítima acessa esse link, pode ser direcionada para uma página falsa, criada para se parecer com a página verdadeira da empresa ou instituição. Dessa forma, ela acredita estar acessando um ambiente seguro quando, na realidade, está fornecendo informações diretamente ao criminoso. Em variação menos frequente, o próprio clique instala programa malicioso que captura os dados do aparelho.</p>
       <p>Um dos principais motivos pelos quais esse golpe funciona é a utilização da engenharia social. O criminoso não depende apenas de recursos tecnológicos: procura explorar comportamentos e emoções humanas. Em vez de simplesmente tentar descobrir uma senha ou invadir diretamente uma conta, ele faz com que a própria vítima forneça a informação acreditando estar tomando uma decisão correta. A engenharia social tem, portanto, papel central no phishing, pois é responsável por criar uma situação capaz de influenciar a maneira como a vítima reage. Quatro técnicas concentram as abordagens.</p>
@@ -303,7 +324,7 @@ footer div{max-width:1180px;margin:0 auto}
       <p>Por isso, entender o phishing exige olhar não apenas para o link ou para a página falsa, mas também para a maneira como o criminoso tenta influenciar a vítima. O golpe pode começar com uma simples mensagem, mas por trás dela existe uma estratégia que busca despertar uma reação específica — medo para gerar preocupação, urgência para impedir a reflexão, autoridade para aumentar a confiança, recompensa para despertar o interesse. Obtida essa reação, o criminoso conduz a vítima à etapa seguinte.</p>
       <p>A prevenção apoia-se em três regras verificáveis por qualquer pessoa. A primeira é não acessar serviços por links recebidos, e sim digitar o endereço ou abrir o aplicativo oficial. A segunda é lembrar que nenhuma instituição solicita senha, código de verificação ou dados completos do cartão por mensagem ou telefone. A terceira corrige uma noção difundida e hoje obsoleta: a presença do cadeado e do "https" não atesta legitimidade, pois páginas fraudulentas também utilizam certificados válidos. O que deve ser conferido é o endereço completo do site, atentando para domínios semelhantes aos verdadeiros com terminação alterada.</p>
 
-      <h3 class="sub">2.2 Golpes envolvendo o Pix</h3>
+      <h3 class="sub" id="s22">2.2 Golpes envolvendo o Pix</h3>
       <p>O Pix trouxe mais rapidez e praticidade para as transações financeiras, mas também passou a ser utilizado por criminosos para aplicar diferentes tipos de golpes. Por funcionar de forma rápida e estar disponível praticamente 24 horas por dia, o Pix pode facilitar a ação dos golpistas, principalmente quando a vítima é pressionada a tomar uma decisão sem verificar as informações. À rapidez soma-se a irreversibilidade prática da operação, que reduz drasticamente a janela de recuperação do valor.</p>
       <p><strong>O falso comprovante de Pix.</strong> Nesse caso, o criminoso apresenta um comprovante falso ou editado, fazendo parecer que o pagamento foi realizado. A vítima, acreditando que recebeu o dinheiro, entrega o produto ou presta o serviço antes de confirmar se o valor realmente entrou em sua conta.</p>
       <p><strong>Falsa devolução.</strong> O criminoso pode enviar um Pix de pequeno valor e, posteriormente, alegar que realizou uma transferência por engano, pedindo que o dinheiro seja devolvido para uma chave Pix diferente. Se a vítima fizer uma nova transferência manualmente, poderá perder o próprio dinheiro e ainda correr o risco de o primeiro pagamento ser posteriormente contestado. O erro está justamente na transferência manual: o aplicativo possui função própria de devolução, que restitui o valor exatamente à origem.</p>
@@ -318,7 +339,7 @@ footer div{max-width:1180px;margin:0 auto}
 
       <p>Caso a fraude se concretize, o Banco Central disponibiliza o Mecanismo Especial de Devolução (MED), acionado pelo banco da vítima, que permite o bloqueio dos recursos ainda existentes na conta do recebedor. A comunicação deve ser imediata, pois a eficácia depende de o valor não ter sido pulverizado em outras contas.</p>
 
-      <h3 class="sub">2.3 Golpe da Falsa Venda e falsas lojas virtuais</h3>
+      <h3 class="sub" id="s23">2.3 Golpe da Falsa Venda e falsas lojas virtuais</h3>
       <p>O golpe da falsa venda foi o mais relatado por clientes bancários no primeiro semestre de 2025, segundo levantamento da FEBRABAN junto às instituições financeiras associadas. Ao todo, foram 174 mil ocorrências, número que representa um aumento de 314% em comparação ao mesmo período de 2024, quando haviam sido registradas 42 mil — salto que levou a modalidade da terceira para a primeira posição do ranking nacional.</p>
 
       <div class="figures">
@@ -353,14 +374,14 @@ footer div{max-width:1180px;margin:0 auto}
       <p>Como se proteger: a regra de ouro do Pix vale igualmente aqui — pagamento só existe quando o dinheiro efetivamente entra na conta, pois comprovantes podem ser manipulados. Por isso, a empresa deve confirmar o pagamento no ambiente bancário oficial; não liberar produtos ou serviços antes da confirmação; fazer conciliação financeira; validar CNPJ, razão social, endereço e telefone; e utilizar canais oficiais para confirmar negociações suspeitas.</p>
       <p>Se cair no golpe, a reação deve ser imediata: interromper a entrega, salvar evidências, registrar boletim de ocorrência e comunicar o banco o quanto antes, caso tenha realizado algum pagamento, solicitando orientação sobre as medidas disponíveis para contestação ou tentativa de recuperação dos valores — inclusive o acionamento do MED, quando o pagamento tiver sido feito por Pix. Depois, revisar os processos internos.</p>
 
-      <h3 class="sub">2.4 Padrão transversal</h3>
+      <h3 class="sub" id="s24">2.4 Padrão transversal</h3>
       <p>As três modalidades compartilham a mesma arquitetura: obtenção prévia de elementos que conferem credibilidade, construção de um pretexto verossímil, imposição de urgência que inviabiliza a verificação, isolamento da vítima em relação à sua rede de apoio e canalização do valor por meio de pagamento irreversível. A implicação para o desenho dos materiais educativos da Etapa 2 é direta: mais eficaz do que enumerar golpes é ensinar o reconhecimento do padrão — pressa, sigilo e pagamento imediato configuram, em conjunto, sinal de alerta independentemente da narrativa apresentada.</p>
     </section>
 
     <section id="s3">
       <h2 class="sec">3 Apostas online: fundamentos matemáticos e comportamentais</h2>
 
-      <h3 class="sub">3.1 Vantagem da casa e esperança matemática negativa</h3>
+      <h3 class="sub" id="s31">3.1 Vantagem da casa e esperança matemática negativa</h3>
       <p>Toda plataforma de apostas opera com margem estrutural embutida no preço do produto. Em mercados esportivos, a margem se expressa na cotação: um evento com duas possibilidades equiprováveis deveria ser cotado a 2,00 em ambos os lados; a oferta usual de 1,90 implica probabilidade implícita somada superior a 100%. A diferença — o <em>overround</em>, da ordem de 5% no exemplo — é a receita esperada da operadora, cobrada independentemente do resultado.</p>
       <p>Em jogos de cassino online, a mesma lógica aparece sob a forma do RTP (<em>return to player</em>). Um RTP de 96% significa que, do total apostado, 96% retornam aos jogadores como prêmio e 4% permanecem com a casa. O aspecto decisivo, frequentemente incompreendido, é que o percentual incide sobre <strong>cada rodada</strong>, e não sobre o depósito inicial. Como o jogador reaposta os prêmios recebidos, a erosão é composta.</p>
 
@@ -372,18 +393,18 @@ footer div{max-width:1180px;margin:0 auto}
 
       <p>A ruína do apostador é, portanto, o desfecho matematicamente esperado da persistência, e não um infortúnio.</p>
 
-      <h3 class="sub">3.2 Variância, lei dos grandes números e a ilusão do ganho</h3>
+      <h3 class="sub" id="s32">3.2 Variância, lei dos grandes números e a ilusão do ganho</h3>
       <p>Se o resultado esperado é negativo, resta explicar por que tantas pessoas relatam ganhos. A resposta está na variância. No curto prazo, o resultado individual oscila amplamente em torno da média, e ganhos são não apenas possíveis como frequentes. A lei dos grandes números garante apenas que, à medida que o número de tentativas cresce, o resultado médio converge para a esperança matemática — negativa por construção.</p>
       <p>Esse descompasso entre a experiência de curto prazo e a determinação de longo prazo é o que sustenta o setor. O apostador vivencia vitórias reais e as interpreta como evidência de habilidade, enquanto a estrutura matemática opera silenciosamente na direção oposta.</p>
 
-      <h3 class="sub">3.3 Reforço de razão variável e quase-ganhos</h3>
+      <h3 class="sub" id="s33">3.3 Reforço de razão variável e quase-ganhos</h3>
       <p>O desenho comportamental amplifica o efeito. As plataformas operam sob <strong>reforço de razão variável</strong>, esquema descrito na psicologia experimental como o mais resistente à extinção: recompensas entregues em intervalos imprevisíveis produzem comportamento repetitivo mais persistente do que recompensas regulares. É o mesmo princípio que torna a máquina caça-níqueis mais viciante do que um salário.</p>
       <p>Soma-se o <strong>quase-ganho</strong> (<em>near miss</em>): configurações em que o resultado se aproxima visualmente da premiação sem alcançá-la. Estudos de neuroimagem indicam que tais eventos ativam circuitos de recompensa de modo semelhante ao ganho efetivo, embora constituam derrota. Trata-se de perda apresentada como progresso.</p>
 
-      <h3 class="sub">3.4 Vieses cognitivos mobilizados</h3>
+      <h3 class="sub" id="s34">3.4 Vieses cognitivos mobilizados</h3>
       <p>Quatro vieses concentram o efeito. A <strong>falácia do apostador</strong> leva à crença de que resultados passados alteram probabilidades futuras em eventos independentes. A <strong>ilusão de controle</strong> faz o usuário atribuir a decisões próprias — escolha do momento, do time, do valor — influência sobre um processo aleatório. A <strong>aversão à perda</strong> torna o prejuízo psicologicamente mais intenso que o ganho equivalente, alimentando o <em>chasing</em>, isto é, o aumento das apostas para recuperar valores perdidos. E o <strong>viés de disponibilidade</strong> é reforçado pela exposição publicitária: divulgam-se ganhadores, nunca a distribuição completa dos resultados.</p>
 
-      <h3 class="sub">3.5 Bônus, gamificação e retenção algorítmica</h3>
+      <h3 class="sub" id="s35">3.5 Bônus, gamificação e retenção algorítmica</h3>
       <p>O bônus de boas-vindas funciona como custo de aquisição condicionado: o <em>rollover</em> exige que o valor seja apostado múltiplas vezes antes de qualquer saque, garantindo que a margem da casa incida repetidamente sobre ele. Sobre essa base atuam elementos de gamificação — níveis, missões, notificações personalizadas — e o encurtamento do ciclo entre aposta e resultado, promovido pelas apostas ao vivo, que multiplica a frequência de reforço e reduz a janela de reflexão disponível ao usuário.</p>
     </section>
 
@@ -456,6 +477,26 @@ footer div{max-width:1180px;margin:0 auto}
     b.style.height = Math.max(2, v) + '%';
     el.appendChild(b);
   }
+})();
+
+// destaca no sumário a seção visível
+(function(){
+  var alvos = [].slice.call(document.querySelectorAll('section[id], h3.sub[id]'));
+  var links = {};
+  document.querySelectorAll('nav.toc a').forEach(function(a){
+    links[a.getAttribute('href').slice(1)] = a;
+  });
+  if(!('IntersectionObserver' in window) || !alvos.length) return;
+  var visiveis = new Set();
+  var obs = new IntersectionObserver(function(entradas){
+    entradas.forEach(function(e){
+      if(e.isIntersecting) visiveis.add(e.target.id); else visiveis.delete(e.target.id);
+    });
+    var atual = alvos.filter(function(t){ return visiveis.has(t.id); })[0];
+    Object.keys(links).forEach(function(k){ links[k].classList.remove('active'); });
+    if(atual && links[atual.id]) links[atual.id].classList.add('active');
+  }, { rootMargin: '-10% 0px -70% 0px' });
+  alvos.forEach(function(t){ obs.observe(t); });
 })();
 
 // controle de tamanho de texto
