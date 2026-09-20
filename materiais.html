@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Materiais de prevenção — PACEx UNIPAR</title>
+<meta name="description" content="Panfleto, cartilha de WhatsApp, cartaz e infográfico sobre golpes financeiros digitais e apostas online. Livres para baixar, imprimir e compartilhar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/estilo.css">
+<style>
+.intro{max-width:64ch;padding:2.4rem 0 1rem}
+.intro p{margin-bottom:1rem}
+
+.peca{
+  background:var(--surface);border:1px solid var(--line);
+  margin-bottom:2.2rem;overflow:hidden;
+}
+.peca-cab{
+  display:flex;flex-wrap:wrap;gap:1rem;align-items:baseline;justify-content:space-between;
+  padding:1.3rem clamp(1.1rem,3vw,1.8rem) 0;
+}
+.peca-cab h2{border:none;padding:0;margin:0;font-size:clamp(1.25rem,3vw,1.6rem)}
+.peca-cab .tipo{max-width:100%;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.68rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--muted);
+}
+.peca-corpo{
+  padding:1rem clamp(1.1rem,3vw,1.8rem) 1.6rem;
+  display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(1.2rem,3vw,2.4rem);
+  align-items:start;
+}
+@media(max-width:780px){.peca-corpo{grid-template-columns:1fr}}
+.peca-texto p{margin-bottom:.9rem;font-size:.98rem}
+.ficha{list-style:none;margin:1rem 0 1.3rem;padding:0;font-size:.9rem}
+.ficha li{display:flex;gap:.7rem;padding:.42rem 0;border-bottom:1px dotted var(--line);min-width:0}
+.ficha li>span{min-width:0}
+.ficha li:last-child{border-bottom:none}
+.ficha b{
+  flex:0 0 5.6rem;font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+  padding-top:.18rem;font-weight:500;
+}
+.acoes{display:flex;flex-wrap:wrap;gap:.6rem}
+
+.visual{min-width:0}
+.visual img{
+  width:100%;height:auto;display:block;
+  border:1px solid var(--line);background:#fff;
+}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.legenda{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.64rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);margin-top:.5rem;text-align:center;
+}
+.tira{display:grid;grid-template-columns:repeat(3,1fr);gap:.55rem}
+@media(max-width:560px){
+  .tira{grid-template-columns:repeat(2,1fr)}
+  .ficha b{flex:0 0 4.6rem;font-size:.6rem}
+  .acoes .btn{flex:1 1 auto;justify-content:center}
+}
+.tira a{display:block;position:relative}
+.tira img{border:1px solid var(--line)}
+.tira a:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+
+.como{
+  background:var(--surface);border-left:5px solid var(--teal);
+  padding:1.2rem 1.35rem;margin:1.2rem 0 0;font-size:.94rem;
+}
+.como b{font-family:Archivo,sans-serif;display:block;margin-bottom:.4rem}
+.como ol{margin:.5rem 0 0 1.1rem;padding:0}
+.como li{margin-bottom:.35rem;line-height:1.45}
+
+.tudo{
+  background:var(--ink);color:#EAF2F1;padding:1.8rem clamp(1.2rem,3vw,2rem);
+  margin:1rem 0 3.5rem;display:flex;flex-wrap:wrap;gap:1.2rem;
+  align-items:center;justify-content:space-between;
+}
+.tudo h2{border:none;padding:0;margin:0 0 .4rem;color:#fff;font-size:1.3rem}
+.tudo p{margin:0;font-size:.95rem;color:#B9CFCD;max-width:48ch}
+.tudo .btn{background:#EAF2F1;color:var(--ink);border-color:#EAF2F1}
+.tudo .btn:hover{background:#fff}
+
+/* visualizador */
+.lupa{
+  position:fixed;inset:0;background:rgba(10,18,24,.93);z-index:100;
+  display:none;align-items:center;justify-content:center;padding:1.5rem;
+}
+.lupa.aberta{display:flex}
+.lupa img{max-width:100%;max-height:86vh;object-fit:contain;box-shadow:0 10px 50px rgba(0,0,0,.5)}
+.lupa .fechar{
+  position:absolute;top:1rem;right:1.2rem;background:none;border:1px solid rgba(255,255,255,.4);
+  color:#fff;font-size:1.5rem;line-height:1;width:2.4rem;height:2.4rem;border-radius:2px;cursor:pointer;
+}
+.lupa .fechar:hover{background:rgba(255,255,255,.12)}
+.lupa .nav{
+  position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+  display:flex;gap:.5rem;align-items:center;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.72rem;color:#C9D6D4;
+}
+.lupa .nav button{
+  background:none;border:1px solid rgba(255,255,255,.4);color:#fff;
+  padding:.3rem .7rem;border-radius:2px;cursor:pointer;font-size:.8rem;
+}
+.lupa .nav button:hover{background:rgba(255,255,255,.12)}
+</style>
+</head>
+<body class="pg">
+
+<nav class="sitenav" aria-label="Seções do projeto">
+  <div class="sitenav-in">
+    <a class="marca" href="index.html">PACEx<span> · UNIPAR</span></a>
+    <ul>
+      <li><a href="index.html">Pesquisa</a></li>
+      <li><a href="diagnostico.html">Diagnóstico</a></li>
+      <li><a href="materiais.html" class="atual" aria-current="page">Materiais</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="cabeca">
+  <div class="cabeca-in">
+    <div class="etapa">Etapa 2 · Portfólio de mídias</div>
+    <h1>Materiais de prevenção</h1>
+    <p class="sub">Quatro peças prontas para imprimir, compartilhar e publicar. Uso livre para fins educativos e comunitários.</p>
+  </div>
+</header>
+
+<div class="corpo">
+
+  <div class="intro">
+    <p>Todo o material desta página foi produzido a partir do <a href="diagnostico.html">Relatório de Diagnóstico Preventivo</a>, seguindo os mesmos critérios de acessibilidade: texto grande, alto contraste, frases curtas e uma ideia por bloco.</p>
+    <p>Você não precisa pedir autorização para usar. Imprima, encaminhe, afixe no mural do seu prédio ou da sua igreja. Se for reproduzir, mantenha a identificação do projeto no rodapé das peças.</p>
+  </div>
+
+  <!-- ============ PANFLETO ============ -->
+  <article class="peca" id="panfleto">
+    <div class="peca-cab">
+      <h2>Panfleto</h2>
+      <span class="tipo">A5 · frente e verso · PDF</span>
+    </div>
+    <div class="peca-corpo">
+      <div class="peca-texto">
+        <p>Peça principal da ação presencial. Reúne o critério de reconhecimento de golpes, as cinco regras de prevenção e o que fazer quando o golpe já aconteceu.</p>
+        <ul class="ficha">
+          <li><b>Formato</b><span>148 × 210 mm (A5)</span></li>
+          <li><b>Impressão</b><span>Frente e verso, papel comum</span></li>
+          <li><b>Onde usar</b><span>Entrega em mãos, balcões, salas de espera</span></li>
+        </ul>
+        <div class="acoes">
+          <a class="btn" href="assets/docs/PanfletoA5.pdf" download>Baixar <em>PDF</em></a>
+          <a class="btn vazado" href="assets/docs/PanfletoA5.pdf" target="_blank" rel="noopener">Abrir para ver</a>
+        </div>
+        <div class="como">
+          <b>Para imprimir em casa</b>
+          <ol>
+            <li>Abra o PDF e mande imprimir.</li>
+            <li>Escolha <strong>frente e verso</strong>, virando pela borda curta.</li>
+            <li>Em tamanho, deixe <strong>100%</strong> ou "tamanho real" — não use "ajustar à página".</li>
+          </ol>
+        </div>
+      </div>
+      <div class="visual">
+        <div class="duo">
+          <a href="assets/img/panfleto-frente.png" data-zoom><img src="assets/img/panfleto-frente.png" alt="Frente do panfleto: título Pare e Pense, os três sinais de golpe e exemplos de mensagens fraudulentas." loading="lazy"></a>
+          <a href="assets/img/panfleto-verso.png" data-zoom><img src="assets/img/panfleto-verso.png" alt="Verso do panfleto: cinco regras de prevenção, o que fazer se caiu no golpe e canal de autoexclusão de apostas." loading="lazy"></a>
+        </div>
+        <div class="legenda">Frente e verso · clique para ampliar</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ CARTILHA ============ -->
+  <article class="peca" id="cartilha">
+    <div class="peca-cab">
+      <h2>Cartilha para WhatsApp</h2>
+      <span class="tipo">6 imagens · 1080 × 1080 · PNG</span>
+    </div>
+    <div class="peca-corpo">
+      <div class="peca-texto">
+        <p>Uma ideia por imagem, no formato quadrado que o WhatsApp mostra sem cortar. A sequência vai do reconhecimento do golpe até os canais de ajuda.</p>
+        <ul class="ficha">
+          <li><b>Formato</b><span>1080 × 1080 px, quadrado</span></li>
+          <li><b>Onde usar</b><span>Grupos de família, vizinhança, igreja</span></li>
+          <li><b>Ordem</b><span>Envie na sequência de 1 a 6</span></li>
+        </ul>
+        <div class="acoes">
+          <a class="btn" href="assets/docs/PortfolioDeMidias.pdf" download>Baixar todas <em>PDF</em></a>
+        </div>
+        <div class="como">
+          <b>Para enviar no WhatsApp</b>
+          <ol>
+            <li>Toque numa imagem abaixo e segure para salvar na galeria.</li>
+            <li>No WhatsApp, anexe pela galeria — não pelo "documento", para a imagem aparecer direto na conversa.</li>
+            <li>Envie as seis na ordem, uma depois da outra.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="visual">
+        <div class="tira">
+          <a href="assets/img/card-1-capa.png" data-zoom><img src="assets/img/card-1-capa.png" alt="Card 1: capa da cartilha, Golpe no celular." loading="lazy"></a>
+          <a href="assets/img/card-2-regra.png" data-zoom><img src="assets/img/card-2-regra.png" alt="Card 2: pressa mais sigilo mais pagar na hora é igual a golpe." loading="lazy"></a>
+          <a href="assets/img/card-3-frases.png" data-zoom><img src="assets/img/card-3-frases.png" alt="Card 3: exemplos de mensagens fraudulentas." loading="lazy"></a>
+          <a href="assets/img/card-4-banco-nunca.png" data-zoom><img src="assets/img/card-4-banco-nunca.png" alt="Card 4: o que o banco nunca vai pedir." loading="lazy"></a>
+          <a href="assets/img/card-5-pix-extrato.png" data-zoom><img src="assets/img/card-5-pix-extrato.png" alt="Card 5: só recebeu quando o dinheiro aparece no extrato." loading="lazy"></a>
+          <a href="assets/img/card-6-ajuda.png" data-zoom><img src="assets/img/card-6-ajuda.png" alt="Card 6: o que fazer se caiu no golpe e onde pedir ajuda com apostas." loading="lazy"></a>
+        </div>
+        <div class="legenda">Clique para ampliar e salvar</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ CARTAZ ============ -->
+  <article class="peca" id="cartaz">
+    <div class="peca-cab">
+      <h2>Cartaz</h2>
+      <span class="tipo">A3 · PDF</span>
+    </div>
+    <div class="peca-corpo">
+      <div class="peca-texto">
+        <p>Uma mensagem dominante, dimensionada para ser lida a alguns metros de distância. O menor texto de conteúdo tem 21 pt.</p>
+        <ul class="ficha">
+          <li><b>Formato</b><span>297 × 420 mm (A3)</span></li>
+          <li><b>Onde usar</b><span>Murais de postos de saúde, igrejas, associações</span></li>
+          <li><b>Dica</b><span>Também funciona impresso em A4</span></li>
+        </ul>
+        <div class="acoes">
+          <a class="btn" href="assets/docs/CartazA3.pdf" download>Baixar <em>PDF</em></a>
+          <a class="btn vazado" href="assets/docs/CartazA3.pdf" target="_blank" rel="noopener">Abrir para ver</a>
+        </div>
+      </div>
+      <div class="visual">
+        <a href="assets/img/cartaz.png" data-zoom><img src="assets/img/cartaz.png" alt="Cartaz A3: Pediram pressa? É golpe. Com os três sinais e três regras de prevenção." loading="lazy"></a>
+        <div class="legenda">Clique para ampliar</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ INFOGRÁFICO ============ -->
+  <article class="peca" id="infografico">
+    <div class="peca-cab">
+      <h2>Infográfico sobre apostas</h2>
+      <span class="tipo">1080 × 1350 · PNG</span>
+    </div>
+    <div class="peca-corpo">
+      <div class="peca-texto">
+        <p>Explica em forma visual por que a conta das apostas online não fecha, com dados oficiais do Banco Central e o caminho para a autoexclusão gratuita.</p>
+        <ul class="ficha">
+          <li><b>Formato</b><span>1080 × 1350 px, vertical</span></li>
+          <li><b>Onde usar</b><span>Feed do Instagram e do Facebook</span></li>
+          <li><b>Fonte</b><span>Banco Central — Estudo Especial nº 119/2024</span></li>
+        </ul>
+        <div class="acoes">
+          <a class="btn" href="assets/img/infografico.png" download>Baixar <em>PNG</em></a>
+        </div>
+      </div>
+      <div class="visual">
+        <a href="assets/img/infografico.png" data-zoom><img src="assets/img/infografico.png" alt="Infográfico: por que a conta nunca fecha. Mostra R$ 100 virando R$ 13 em 50 rodadas e dados do Banco Central." loading="lazy"></a>
+        <div class="legenda">Clique para ampliar</div>
+      </div>
+    </div>
+  </article>
+
+  <div class="tudo">
+    <div>
+      <h2>Quer o conjunto completo?</h2>
+      <p>As quatro peças reunidas em um único PDF, com a ficha técnica de cada uma.</p>
+    </div>
+    <a class="btn" href="assets/docs/PortfolioDeMidias.pdf" download>Baixar portfólio <em>PDF</em></a>
+  </div>
+
+</div>
+
+<footer class="rodape">
+  <div class="rodape-in">
+    <p><strong>PACEx — Projeto de Atividade Curricular de Extensão.</strong> Cursos de Administração e Ciências Contábeis · Universidade Paranaense (UNIPAR) · Umuarama – PR, 2026.</p>
+    <p style="margin-top:.7rem">Material educativo de uso livre. As orientações aqui reunidas baseiam-se em fontes oficiais listadas nas <a href="index.html#refs">referências da pesquisa</a>.</p>
+  </div>
+</footer>
+
+<!-- visualizador de imagem -->
+<div class="lupa" id="lupa" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
+  <button class="fechar" id="fechar" aria-label="Fechar">×</button>
+  <img id="lupaImg" src="" alt="">
+  <div class="nav">
+    <button id="ant" aria-label="Anterior">←</button>
+    <span id="pos">1 / 1</span>
+    <button id="prox" aria-label="Próxima">→</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var links = [].slice.call(document.querySelectorAll('[data-zoom]'));
+  var lupa = document.getElementById('lupa');
+  var img  = document.getElementById('lupaImg');
+  var pos  = document.getElementById('pos');
+  var i = 0;
+
+  function mostrar(n){
+    i = (n + links.length) % links.length;
+    var a = links[i];
+    img.src = a.getAttribute('href');
+    img.alt = a.querySelector('img') ? a.querySelector('img').alt : '';
+    pos.textContent = (i+1) + ' / ' + links.length;
+  }
+  function abrir(n){ mostrar(n); lupa.classList.add('aberta'); document.body.style.overflow='hidden'; }
+  function fechar(){ lupa.classList.remove('aberta'); document.body.style.overflow=''; }
+
+  links.forEach(function(a, n){
+    a.addEventListener('click', function(e){ e.preventDefault(); abrir(n); });
+  });
+  document.getElementById('fechar').addEventListener('click', fechar);
+  document.getElementById('ant').addEventListener('click', function(){ mostrar(i-1); });
+  document.getElementById('prox').addEventListener('click', function(){ mostrar(i+1); });
+  lupa.addEventListener('click', function(e){ if(e.target === lupa) fechar(); });
+  document.addEventListener('keydown', function(e){
+    if(!lupa.classList.contains('aberta')) return;
+    if(e.key === 'Escape') fechar();
+    if(e.key === 'ArrowLeft') mostrar(i-1);
+    if(e.key === 'ArrowRight') mostrar(i+1);
+  });
+})();
+</script>
+</body>
+</html>
