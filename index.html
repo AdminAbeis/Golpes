@@ -220,6 +220,10 @@ footer div{max-width:1180px;margin:0 auto}
   section{page-break-inside:avoid}
 }
 
+/* ---------- identificacao no rodape ---------- */
+footer .rodape-in{max-width:1180px;margin:0 auto}
+footer .nota-rodape{margin-top:1.4rem;font-size:.82rem;color:var(--muted);line-height:1.5}
+
 /* ---------- aviso de atualizacao ---------- */
 .aviso-etapa1{background:#FBF3DC;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
   padding:1.3rem clamp(1.25rem,5vw,3rem)}
@@ -527,7 +531,25 @@ footer div{max-width:1180px;margin:0 auto}
 </div>
 
 <footer>
-  <div>PACEx — Cursos de Administração e Ciências Contábeis · Universidade Paranaense (UNIPAR) · Umuarama – PR, 2026. Etapa 1 do projeto de extensão. Os dados citados devem ser conferidos nas fontes primárias listadas nas referências.</div>
+  <div class="rodape-in">
+    <div class="identificacao">
+      <h2>Identificação do grupo</h2>
+      <ul class="equipe">
+      <li><span class="nome">Diogo de Campos Martins</span><span class="det">Ciências Contábeis · RA 60007144</span></li>
+      <li><span class="nome">Eduardo Henrique Zuffo</span><span class="det">Administração · RA 60009637</span></li>
+      <li><span class="nome">Giovana Paulini</span><span class="det">Administração · RA 60007749</span></li>
+      <li><span class="nome">Márcio Eller</span><span class="det">Administração · RA 60007883</span></li>
+      <li><span class="nome">Matheus Eller</span><span class="det">Ciências Contábeis · RA 60005842</span></li>
+      <li><span class="nome">Renan Tuci Afonso</span><span class="det">Ciências Contábeis · RA 60005425</span></li>
+      </ul>
+      <p class="ficha-curso">
+        <strong>4º período</strong> · Cursos de Administração e Ciências Contábeis ·
+        Professor: <strong>Prof. Dr. José Luiz Borsatto Junior</strong><br>
+        Universidade Paranaense (UNIPAR) — Umuarama/PR · 2026
+      </p>
+    </div>
+    <div class="nota-rodape">PACEx — Etapa 1 do projeto de extensão. Os dados citados devem ser conferidos nas fontes primárias listadas nas referências.</div>
+  </div>
 </footer>
 
 <div class="a11y" role="group" aria-label="Tamanho do texto">
