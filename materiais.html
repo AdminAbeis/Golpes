@@ -54,10 +54,23 @@
   border:1px solid var(--line);background:#fff;
 }
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
-.legenda{
+button.legenda{
+  display:flex;align-items:center;gap:.45rem;
+  width:fit-content;margin:.6rem auto 0;
+  background:none;border:1px solid var(--line);border-radius:2px;
+  padding:.46rem .85rem;cursor:pointer;
   font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.64rem;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--muted);margin-top:.5rem;text-align:center;
+  text-transform:uppercase;color:var(--muted);
+  transition:color .15s,border-color .15s,background .15s;
 }
+button.legenda svg{
+  width:.92rem;height:.92rem;flex:0 0 auto;
+  fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;
+}
+button.legenda:hover{color:var(--teal);border-color:var(--teal);background:#fff}
+button.legenda:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.visual a[data-zoom]{cursor:zoom-in}
+.visual a[data-zoom]:hover img{border-color:var(--teal)}
 .tira{display:grid;grid-template-columns:repeat(3,1fr);gap:.55rem}
 @media(max-width:560px){
   .tira{grid-template-columns:repeat(2,1fr)}
@@ -178,7 +191,7 @@
           <a href="assets/img/panfleto-frente.png" data-zoom><img src="assets/img/panfleto-frente.png" alt="Frente do panfleto: título Pare e Pense, os três sinais de golpe e exemplos de mensagens fraudulentas." loading="lazy"></a>
           <a href="assets/img/panfleto-verso.png" data-zoom><img src="assets/img/panfleto-verso.png" alt="Verso do panfleto: cinco regras de prevenção, o que fazer se caiu no golpe e canal de autoexclusão de apostas." loading="lazy"></a>
         </div>
-        <div class="legenda">Frente e verso · clique para ampliar</div>
+        <button type="button" class="legenda" data-abre><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.9" cy="6.9" r="4.7"/><path d="M10.4 10.4 L14.4 14.4"/></svg> Ampliar frente e verso</button>
       </div>
     </div>
   </article>
@@ -219,7 +232,7 @@
           <a href="assets/img/card-6-ajuda.png" data-zoom><img src="assets/img/card-6-ajuda.png" alt="Card 6: o que fazer se caiu no golpe e onde pedir ajuda com apostas." loading="lazy"></a>
           <a href="assets/img/card-7-golpe-saque.png" data-zoom><img src="assets/img/card-7-golpe-saque.png" alt="Card 7: taxa para liberar o saldo da bet é golpe." loading="lazy"></a>
         </div>
-        <div class="legenda">Clique para ampliar e salvar</div>
+        <button type="button" class="legenda" data-abre><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.9" cy="6.9" r="4.7"/><path d="M10.4 10.4 L14.4 14.4"/></svg> Ampliar para ver e salvar</button>
       </div>
     </div>
   </article>
@@ -245,7 +258,7 @@
       </div>
       <div class="visual">
         <a href="assets/img/cartaz.png" data-zoom><img src="assets/img/cartaz.png" alt="Cartaz A3: Pediram pressa? É golpe. Com os três sinais e três regras de prevenção." loading="lazy"></a>
-        <div class="legenda">Clique para ampliar</div>
+        <button type="button" class="legenda" data-abre><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.9" cy="6.9" r="4.7"/><path d="M10.4 10.4 L14.4 14.4"/></svg> Ampliar o cartaz</button>
       </div>
     </div>
   </article>
@@ -270,7 +283,7 @@
       </div>
       <div class="visual">
         <a href="assets/img/infografico.png" data-zoom><img src="assets/img/infografico.png" alt="Infográfico: por que a conta nunca fecha. Mostra R$ 100 virando R$ 13 em 50 rodadas e dados do Banco Central." loading="lazy"></a>
-        <div class="legenda">Clique para ampliar</div>
+        <button type="button" class="legenda" data-abre><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.9" cy="6.9" r="4.7"/><path d="M10.4 10.4 L14.4 14.4"/></svg> Ampliar o infográfico</button>
       </div>
     </div>
   </article>
@@ -339,6 +352,19 @@
 
   links.forEach(function(a, n){
     a.addEventListener('click', function(e){ e.preventDefault(); abrir(n); });
+  });
+
+  // o texto "Ampliar..." abre a primeira imagem da propria peca
+  [].forEach.call(document.querySelectorAll('button.legenda[data-abre]'), function(b){
+    b.addEventListener('click', function(){
+      var caixa = b.parentNode;
+      while(caixa && !(caixa.className && String(caixa.className).indexOf('visual') > -1)){
+        caixa = caixa.parentNode;
+      }
+      var alvo = caixa ? caixa.querySelector('[data-zoom]') : null;
+      var n = alvo ? links.indexOf(alvo) : -1;
+      if(n > -1) abrir(n);
+    });
   });
   document.getElementById('fechar').addEventListener('click', fechar);
   document.getElementById('ant').addEventListener('click', function(){ mostrar(i-1); });
